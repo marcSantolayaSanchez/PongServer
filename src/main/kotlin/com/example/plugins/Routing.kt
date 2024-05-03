@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import com.example.models.Customer
+import com.example.models.Mensaje
 import com.example.routes.customerRouting
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -15,5 +15,5 @@ fun Application.configureRouting() {
         }
     }
 
-    val customerStorage = mutableListOf<Customer>()
+    val customerStorage = mutableListOf<Mensaje>()
 }
