@@ -8,7 +8,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Route.customerRouting() {
-    route("/customer") {
+    route("/ping") {
         get {
             if (mensajeGuardado == null) {
                 call.respondText("No hay mensaje", status = HttpStatusCode.NotFound)
@@ -19,8 +19,11 @@ fun Route.customerRouting() {
 
         post {
             val mensaje = call.receive<Mensaje>()
-            mensajeGuardado = mensaje
-            call.respondText("Mensaje stored correctly", status = HttpStatusCode.Created)
+            if (mensaje.mensaje == "ping") {
+                call.respond(Mensaje("pong"))
+            } else {
+                call.respondText("Mensaje no reconocido", status = HttpStatusCode.BadRequest)
+            }
         }
     }
 }

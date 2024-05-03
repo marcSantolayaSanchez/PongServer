@@ -1,18 +1,12 @@
 ### GET request to example server
 GET http://localhost:8080/
 ###
-GET http://localhost:8080/customer
+GET http://localhost:8080/ping
 ###
-POST http://localhost:8080/customer
+POST http://localhost:8080/ping
 Content-Type: application/json
 
 {
-  "mensaje" : "Hola"
+  "mensaje" : "pong"
 }
 ###
-POST http://127.0.0.1:8080/customer
-Content-Type: application/json
-
-{
-  "mensaje" : "hola"
-}
